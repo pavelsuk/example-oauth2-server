@@ -95,3 +95,9 @@ def revoke_token():
 def api_me():
     user = current_token.user
     return jsonify(id=user.id, username=user.username)
+
+@bp.route('/api/file', methods=['POST'])
+@require_oauth('batch')
+def api_file():
+    user = current_token.user
+    return jsonify(id=user.id, username=user.username)    
